@@ -20,4 +20,5 @@ Route::get('/', function () {
 
 Route::get('/home', function () {
     return view('vendor.home');
-});
+}) ->name('home');
+
