@@ -12,11 +12,11 @@
 <body>
     <div class="container">
         @include('inc.vendor-topnav')
-        <br>
-        Welcome to the Smart e-Ticketing System
         <div>
             @yield('content')
         </div>
+
+        @include('inc.vendor-footer')
     </div>   
 
 
