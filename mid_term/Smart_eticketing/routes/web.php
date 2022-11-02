@@ -22,3 +22,9 @@ Route::get('/home', function () {
     return view('vendor.home');
 }) ->name('home');
 
+Route::get('/login', function () {
+    return view('public.login');
+}) ->name('login');
+Route::get('/registration', function () {
+    return view('public.registration');
+}) ->name('registration');
