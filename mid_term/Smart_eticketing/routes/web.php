@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,13 +19,16 @@ Route::get('/', function () {
     return view('eticketing');
 });
 
-Route::get('/home', function () {
-    return view('vendor.home');
-}) ->name('home');
 
-Route::get('/login', function () {
-    return view('public.login');
-}) ->name('login');
-Route::get('/registration', function () {
-    return view('public.registration');
-}) ->name('registration');
+
+//home
+Route::get('/home',[PagesController::class,"home"])->name("home");
+Route::get('/vendorhome',[PagesController::class,"vendorhome"])->name("vendorhome")->middleware('validvendor');
+Route::get('/adminhome',[PagesController::class,"adminhome"])->name("adminhome")->middleware('validadmin');
+Route::get('/customerhome',[PagesController::class,"customerhome"])->name("customerhome")->middleware('validcustomer');
+//login, registration, logout
+Route::get('/login',[UserController::class,"login"])->name("login")->middleware('alreadyLoggedin');
+Route::post('/login',[UserController::class,"loginSubmitted"])->name("login");
+Route::get('/registration',[UserController::class,"registration"])->name("registration")->middleware('alreadyLoggedin');
+Route::post('/registration',[UserController::class,"registrationSubmitted"])->name("registration");
+Route::get('/logout', [UserController::class,'logout'])->name('logout');

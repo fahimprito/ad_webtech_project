@@ -1,7 +1,7 @@
-@extends('layouts.main')
+@extends('layouts.vendor-main')
 @section('content')
 <div>
-    <h3>Welcome to the home page! </h3>
+    <h3>Welcome to the vendor home page! </h3>
     <br>
  
 </div>
