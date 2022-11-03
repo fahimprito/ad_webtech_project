@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container">
-        @include('inc.topnav')
+        @include('inc.vendor-topnav')
         <div>
             @yield('content')
         </div>
