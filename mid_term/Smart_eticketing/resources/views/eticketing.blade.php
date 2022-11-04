@@ -8,10 +8,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     
     <title>Smart e-ticketing</title>
+    <style>
+        h1 {text-align: center;}
+        div {text-align: center;}
+    </style>
 </head>
 <body>
     <h1>Welcome to the Smart e-Ticketing System</h1> 
-    <a class="btn btn-primary" href="{{route('home')}}">Home</a> 
+    <div><a class="btn btn-primary" href="{{route('home')}}">Home</a> </div>
+    
 
 
 
