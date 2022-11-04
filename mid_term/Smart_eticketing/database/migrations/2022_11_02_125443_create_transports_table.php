@@ -17,6 +17,8 @@ return new class extends Migration
             $table->increments('transport_id')->unique();
             $table->string('transport_name');
             $table->string('transport_type');
+            $table->string('route_from');
+            $table->string('route_to');
             $table->date('transport_date');
             $table->timestamps();
         });

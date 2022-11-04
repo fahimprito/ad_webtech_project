@@ -16,7 +16,7 @@ class alreadyLoggedin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (session()->has('userType') && (url ('login')==$request->url() || url ('registration')==$request->url() ) )
+        if (session()->has('userType') && (url ('login')==$request->url() || url ('registration')==$request->url() || url ('home')==$request->url() ) )
         {
             return back();
         }
