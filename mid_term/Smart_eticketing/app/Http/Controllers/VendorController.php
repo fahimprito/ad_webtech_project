@@ -4,10 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\transport;
+use App\Models\vendor;
 
 class VendorController extends Controller
 {
     //
+
+    function vendorprofile()
+    {
+        $id = session()->get('id');
+        $vendor = [];
+        $vendor = vendor::where('id', '=', $id)->first();
+        return view('vendor.vendor-profile')->with('vendor', $vendor);
+    }
+
+
     function addtransport()
     {
         return view('vendor.addtransport');
@@ -47,11 +58,10 @@ class VendorController extends Controller
 
     }
 
-
-
     function transport_list()
     {
         $data = transport::all();
+        $data = transport::paginate(15);
 
         return view('vendor.transport_list')->with('data', $data);
     }

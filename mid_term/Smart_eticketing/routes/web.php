@@ -39,6 +39,8 @@ Route::get('/adminhome',[PagesController::class,"adminhome"])->name("adminhome")
 
 //vendor
 Route::get('/vendorhome',[PagesController::class,"vendorhome"])->name("vendorhome")->middleware('validvendor');
+Route::get('/vendorabout',[PagesController::class,"vendorabout"])->name("vendorabout")->middleware('validvendor');
+Route::get('/vendorprofile',[VendorController::class,"vendorprofile"])->name("vendorprofile")->middleware('validvendor');
 Route::get('/addtransport',[VendorController::class,"addtransport"])->name("addtransport")->middleware('validvendor');
 Route::post('/addtransport',[VendorController::class,"transportSubmitted"])->name("addtransport")->middleware('validvendor');
 Route::get('/transport_list',[VendorController::class,"transport_list"])->name("transport_list")->middleware('validvendor');

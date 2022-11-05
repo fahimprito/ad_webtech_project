@@ -1,10 +1,13 @@
-@extends('layouts.customer-main')
+@extends('layouts.vendor-main')
 @section('content')
 
 
 <div class="contrainer py-2">
-    <div class="row text-center">
-        <div class="col-12">
+    <div class="row ">
+        <div class="col-2">
+            <a class="nav-link" href="{{route('vendorhome')}}"><< Back</a>
+        </div>
+        <div class="col-8 text-center">
             <h3>Transport Information </h3>
         </div>
     </div>
@@ -15,12 +18,12 @@
         <div class="col-2">
             <nav class="nav flex-column">
                 <a class="nav-link" href="{{route('addtransport')}}">Add new transports</a>
-                <a class="nav-link" href="#">Link</a>
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="#">Transport details</a>
+                <a class="nav-link" href="#">Transport Seats</a>
             </nav>
 
         </div>
-        <div class="col-6">
+        <div class="col-6 text-center">
             <table class="table">
                 <thead>
                     <tr>
@@ -32,6 +35,7 @@
                         <th scope="col">Date</th>
                     </tr>
                 </thead>
+                
                 @foreach($data as $datas)
                     <tr>
                         <td>{{$datas->transport_id}}</a></td>
@@ -43,6 +47,11 @@
                     </tr>
                 @endforeach
             </table>
+            <nav aria-label="Page navigation example">
+                {{$data->links('pagination::bootstrap-5')}}
+            </nav>
+            
+            
         </div>
         <div class="col-2">
             

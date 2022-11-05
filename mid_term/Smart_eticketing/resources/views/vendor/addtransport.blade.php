@@ -1,7 +1,15 @@
 @extends('layouts.vendor-main')
 
 @section('content')
-<div class="container py-5 h-100">
+
+<div class="row ">
+    <div class="col-2">
+        <a class="nav-link" href="{{route('transport_list')}}"><< Back</a>
+    </div>
+</div>
+
+<div class="container py-5">
+    
     <div class="row justify-content-center">
         <div class="col-md-10">
             

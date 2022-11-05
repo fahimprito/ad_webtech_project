@@ -29,9 +29,6 @@
             <a href="#!" class="text-dark">Train ticket</a>
           </li>
           <li>
-            <a href="#!" class="text-dark">Plane ticket</a>
-          </li>
-          <li>
             <a href="#!" class="text-dark">Launch ticket</a>
           </li>
         </ul>
