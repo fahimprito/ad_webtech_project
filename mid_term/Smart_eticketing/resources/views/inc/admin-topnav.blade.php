@@ -32,7 +32,7 @@
             Profile
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="{{route('adminprofile')}}">Profile</a></li>
             <li><a class="dropdown-item" href="#">settings</a></li>
             <li><hr class="dropdown-divider"></li>
             <li>
