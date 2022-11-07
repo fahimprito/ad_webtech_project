@@ -36,8 +36,9 @@ Route::get('/logout', [UserController::class,'logout'])->name('logout');
 //admin
 Route::get('/adminhome',[PagesController::class,"adminhome"])->name("adminhome")->middleware('validadmin');
 Route::get('/admin/profile',[admin_controller::class,"adminprofile"])->name("adminprofile")->middleware('validadmin');
-
-
+Route::get('/admin/transport_informastion',[admin_controller::class,"transport_informastion"])->name("transport_informastion")->middleware('validadmin');
+Route::get('/admin/admin_addtransport',[admin_controller::class,"admin_addtransport"])->name("admin_addtransport")->middleware('validadmin');
+Route::get('/user_informastion',[admin_controller::class,"user_informastion"])->name("user_informastion")->middleware('validadmin');
 
 //vendor
 Route::get('/vendorhome',[PagesController::class,"vendorhome"])->name("vendorhome")->middleware('validvendor');
