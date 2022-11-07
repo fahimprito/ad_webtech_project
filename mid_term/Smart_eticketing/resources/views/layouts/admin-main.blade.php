@@ -17,7 +17,7 @@
             @yield('content')
         </div>
 
-        @include('inc.footer')
+        @include('inc.admin_footer')
     </div>   
 
 
