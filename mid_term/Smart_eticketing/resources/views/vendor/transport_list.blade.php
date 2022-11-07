@@ -23,7 +23,7 @@
             </nav>
 
         </div>
-        <div class="col-6 text-center">
+        <div class="col-8 text-center">
             <table class="table">
                 <thead>
                     <tr>
@@ -33,19 +33,30 @@
                         <th scope="col">From</th>
                         <th scope="col">To</th>
                         <th scope="col">Date</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 
                 @foreach($data as $datas)
                     <tr>
-                        <td>{{$datas->transport_id}}</a></td>
+                        <td>{{$datas->transport_id}}</td>
                         <td>{{$datas->transport_name}}</td>
                         <td>{{$datas->transport_type}}</td>
                         <td>{{$datas->route_from}}</td>
                         <td>{{$datas->route_to}}</td>
                         <td>{{$datas->transport_date}}</td>
+                        <td>
+                            <a href="{{route('transportseat' , ['id'=>$datas->transport_id] )}}">
+                                <button type="button" class="btn btn-outline-success btn-sm" >View Seats</button>
+                            </a>
+                            
+                        </td>
+
                     </tr>
+                    
                 @endforeach
+
+                
             </table>
             <nav aria-label="Page navigation example">
                 {{$data->links('pagination::bootstrap-5')}}

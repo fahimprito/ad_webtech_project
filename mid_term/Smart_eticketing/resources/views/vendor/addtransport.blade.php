@@ -26,7 +26,7 @@
                         @endif
 
                         {{csrf_field()}}
-                        <div class="row mb-3">
+                        <!-- <div class="row mb-3">
                             <label for="transport_id" class="col-sm-2 col-form-label">Transport ID</label>
                             <div class="col-sm-10">
                                 <input type="text" id="form3Example1cg" name="transport_id" class="form-control" value="{{old('transport_id')}}"/>
@@ -34,7 +34,7 @@
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror
                             </div>
-                        </div>
+                        </div> -->
                         <div class="row mb-3">
                             <label for="transport_name" class="col-sm-2 col-form-label">Transport Name</label>
                             <div class="col-sm-10">
