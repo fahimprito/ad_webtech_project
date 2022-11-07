@@ -44,7 +44,9 @@ Route::get('/vendorprofile',[VendorController::class,"vendorprofile"])->name("ve
 Route::get('/addtransport',[VendorController::class,"addtransport"])->name("addtransport")->middleware('validvendor');
 Route::post('/addtransport',[VendorController::class,"transportSubmitted"])->name("addtransport")->middleware('validvendor');
 Route::get('/transport_list',[VendorController::class,"transport_list"])->name("transport_list")->middleware('validvendor');
+Route::get('/transport/seat{id}',[VendorController::class,"transportseat"])->name("transportseat")->middleware('validvendor');
 
+// Route::post('/transport/seat',[UserController::class,"registrationSubmitted"])->name("registration");
 
 
 
