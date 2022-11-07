@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VendorController;
+use App\Http\Controllers\admin_controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,7 @@ Route::get('/logout', [UserController::class,'logout'])->name('logout');
 
 //admin
 Route::get('/adminhome',[PagesController::class,"adminhome"])->name("adminhome")->middleware('validadmin');
+Route::get('/admin/profile',[admin_controller::class,"adminprofile"])->name("adminprofile")->middleware('validadmin');
 
 
 
