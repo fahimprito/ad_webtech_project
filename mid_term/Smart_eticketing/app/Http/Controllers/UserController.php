@@ -8,6 +8,8 @@ use App\Models\vendor;
 use App\Models\customer;
 use Illuminate\Support\Facades\Hash;
 use session;
+use App\Mail\RegMail;
+use Mail;
 
 class UserController extends Controller
 {
@@ -50,6 +52,8 @@ class UserController extends Controller
 
         if($res)
         {
+
+            Mail::to($request->email)->send(new RegMail($request->userType,$request->username));
             return back()->with ('success','You have registered successfully');
         }
         else
@@ -122,6 +126,41 @@ class UserController extends Controller
         session()->flush();
         return redirect()->route("login");
     }   
+
+    function regEmail(Request $request){
+
+        $this->validate($request,
+            [
+                "userType"=>'required',
+                "name"=>"required|regex:/^[A-Z a-z,.-]+$/i",
+                "username"=>'required|min:5|max:50|unique:vendors|unique:customers|unique:admins',
+                "email"=>'required|email|unique:vendors|unique:customers|unique:admins',
+                "phone"=>"required|numeric|digits:10",
+                "password"=>'required|min: 8',
+                "c_password"=>'required|min: 8',
+                "gender"=>'required',
+                "dob"=>'required',
+                "address"=>"required"
+            ],
+            []
+        );
+
+        if($request->userType=="admin"){$user = new admin();}
+        elseif($request->userType=="vendor"){$user = new vendor();}
+        elseif($request->userType=="customer"){$user = new customer();}
+       
+        if($user){
+            Mail::to($request->email)->send(new regEmail("Registration",$request->userType,$user->username));
+            return back();
+        }
+        else
+        {
+            return back()->with ('fail','Somethihng is wrong!');
+        }
+        
+
+
+    }
 
 
 

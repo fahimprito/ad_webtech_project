@@ -20,14 +20,7 @@ use App\Http\Controllers\admin_controller;
 //opening page
 Route::get('/', function () {return view('eticketing');});
 Route::get('/vendor-dashboard', function () {return view('vendor.dashboard');});
-Route::get('/mail',function (){
-    $to_name="fahim";
-    $to_email="fahimahmmed44@gmail.com";
-    $data=array("name"=> " leo messi ", "body" => "we won the round of 16");
-    Mail::send('public.mail',$data,function ($message) use ($to_name,$to_email){
-        $message->to($to_email)->subject ('mail sub');
-    });
-})->name("mail");
+
 
 
 //home
@@ -38,6 +31,8 @@ Route::post('/login',[UserController::class,"loginSubmitted"])->name("login");
 Route::get('/registration',[UserController::class,"registration"])->name("registration")->middleware('alreadyLoggedin');
 Route::post('/registration',[UserController::class,"registrationSubmitted"])->name("registration");
 Route::get('/logout', [UserController::class,'logout'])->name('logout');
+//email 
+Route::get('/registrationEmail/{id}', [UserController::class, 'regEmail'])->name('regEmail'); 
 
 
 

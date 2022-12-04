@@ -17,7 +17,6 @@
     <h1>Welcome to the Smart e-Ticketing System</h1> 
     <div><a class="btn btn-primary" href="{{route('home')}}">Home</a> </div>
     <br>
-    <div><a class="btn btn-primary" href="{{route('mail')}}">mail check</a> </div>
     
 
 
