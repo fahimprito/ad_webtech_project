@@ -22,6 +22,7 @@ Route::get('/', function () {return view('eticketing');});
 Route::get('/vendor-dashboard', function () {return view('vendor.dashboard');});
 
 
+
 //home
 Route::get('/home',[PagesController::class,"home"])->name("home")->middleware('alreadyLoggedin');
 //login, registration, logout
@@ -30,6 +31,8 @@ Route::post('/login',[UserController::class,"loginSubmitted"])->name("login");
 Route::get('/registration',[UserController::class,"registration"])->name("registration")->middleware('alreadyLoggedin');
 Route::post('/registration',[UserController::class,"registrationSubmitted"])->name("registration");
 Route::get('/logout', [UserController::class,'logout'])->name('logout');
+//email 
+Route::get('/registrationEmail/{id}', [UserController::class, 'regEmail'])->name('regEmail'); 
 
 
 
