@@ -121,7 +121,7 @@
 
 
                         <div class="mb-3 col-md-3 ps-4">
-                            <label for="userType">Gender </label>
+                            <label for="gender">Gender </label>
                         </div>
                         <div class="mb-3 col-md-9 pe-4">
                             <div class="form-check form-check-inline">
