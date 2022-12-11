@@ -53,6 +53,7 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $routeMiddleware = [
+        'APIAuth' => \App\Http\Middleware\APIAuth::class,
         'alreadyLoggedin' => \App\Http\Middleware\alreadyLoggedin::class,
         'validvendor' => \App\Http\Middleware\validvendor::class,
         'validcustomer' => \App\Http\Middleware\validcustomer::class,

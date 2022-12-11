@@ -27,7 +27,7 @@ const RegistrationBody = () => {
         event.preventDefault();
         const data = { userType: userType, name: name, username: username, email: email, phone: phone, password: password, c_password: c_password, gender: gender, dob: dob, address: address };
         
-        AxiosConfig.post("registration", data).
+        AxiosConfig.post("/registration", data).
             then((resp) => {
                 
                 debugger;

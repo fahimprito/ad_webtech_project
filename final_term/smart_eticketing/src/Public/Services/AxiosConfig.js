@@ -1,9 +1,11 @@
 import axios from 'axios';
 const instance = axios.create({
-    baseURL : 'http://localhost:8000/api/'
+    baseURL : 'http://localhost:8000/api'
 });
 
 instance.interceptors.request.use((config)=>{
+    config.headers.Authorization =  localStorage.getItem("user");
+    console.log( config.headers.Authorization);
     // config.headers.common["Authorization"] = localStorage.getItem('_authToken');
     // config.headers.common["user_type"] = localStorage.getItem('user_type');
     // config.headers.common["user_id"] = localStorage.getItem('user_id');
