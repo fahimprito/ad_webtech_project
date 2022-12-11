@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\admin;
 use App\Models\vendor;
 use App\Models\customer;
+use App\Mail\RegMail;
+use Mail;
+use App\Models\Token;
 
 class Api_Controller extends Controller
 {
@@ -46,6 +49,8 @@ class Api_Controller extends Controller
         $user->dob = $request->dob;
         $user->address = $request->address;
         $res = $user->save();
+
+        Mail::to($request->email)->send(new RegMail($request->userType,$request->username));
 
         return response()->json(
             [
@@ -106,11 +111,20 @@ class Api_Controller extends Controller
                 }
     
                 elseif($request->userType == "customer"){
+
+                    $api_token = Str::random(64);
+                    $token = new Token();
+                    $token->userid = $user->id;
+                    $token->token = $api_token;
+                    $token->updated_at = new DateTime();
+                    $token->save();
+                    
                     return response()->json(
                         [
                             "msg"=>"Login Successfull",
                             "userType"=>$request->userType, 
-                            "user"=>$user    
+                            "user"=>$user ,
+                            "token"=>$token     
                         ]
                     );
                 }

@@ -10,6 +10,7 @@ const LoginBody = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
+    const[token, setToken]= useState("");
 
     useEffect(() => {
         document.title='Login';
@@ -21,7 +22,7 @@ const LoginBody = () => {
         
         console.log(userType);
         console.log(data);
-        AxiosConfig.post("login", data).
+        AxiosConfig.post("/login", data).
             then((resp) => {
                 
                 debugger;
@@ -29,15 +30,25 @@ const LoginBody = () => {
                 
 
                 if(resp.data.msg){
+
+                    localStorage.setItem('userType', resp.data.userType);
+                    localStorage.setItem('user_id', resp.data.user.id);
+                    localStorage.setItem('username', resp.data.user.username);
+
                     if(resp.data.userType=="admin"){
                         alert(resp.data.msg);
 
                     }else if(resp.data.userType=="vendor"){
-                        window.location.href = "/registration";
+                        window.location.href = "/vendor/home";
 
                     } else if(resp.data.userType=="customer"){
                         alert(resp.data.msg);
-
+                        //
+                        var token = resp.data.token;
+                        console.log(token);
+                        var user = {userId: token.userid, access_token:token.token};
+                        localStorage.setItem('user',JSON.stringify(user));
+                        console.log(localStorage.getItem('user'));
                     }
                 }
                 if(resp.data.errmsg){
