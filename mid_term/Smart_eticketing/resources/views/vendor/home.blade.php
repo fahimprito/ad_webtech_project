@@ -4,7 +4,7 @@
 <div class="contrainer py-1">
     <div class="row text-center">
         <div class="col-12">
-            <h3>Welcome to {{session('username')}} </h3>
+            <h3>Welcome to your home {{session('username')}} </h3>
         </div>
     </div>
 
