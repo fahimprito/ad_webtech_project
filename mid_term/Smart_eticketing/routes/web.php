@@ -25,6 +25,7 @@ Route::get('/vendor-dashboard', function () {return view('vendor.dashboard');});
 
 //home
 Route::get('/home',[PagesController::class,"home"])->name("home")->middleware('alreadyLoggedin');
+Route::get('/about',[PagesController::class,"about"])->name("about")->middleware('alreadyLoggedin');
 //login, registration, logout
 Route::get('/login',[UserController::class,"login"])->name("login")->middleware('alreadyLoggedin');
 Route::post('/login',[UserController::class,"loginSubmitted"])->name("login");

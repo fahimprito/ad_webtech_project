@@ -12,6 +12,7 @@ class PagesController extends Controller
     function adminhome(){return view('admin.a_home');}
     function customerhome(){return view('customer.c_home');}
     //about
+    function about(){return view('public.about');}
     function vendorabout(){return view('vendor.vendor-about');}
 
 
